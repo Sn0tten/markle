@@ -43,3 +43,21 @@ Create `.env.local` in `apps/web` and `.env` in `services/api` as needed.
 
 ## License
 MIT
+
+## Deployment
+
+### GHCR Images
+On pushes to `main`, GitHub Actions builds and pushes Docker images to GHCR:
+- `ghcr.io/Sn0tten/markle/web:latest`
+- `ghcr.io/Sn0tten/markle/api:latest`
+
+### Dokploy Setup
+Use these images in Dokploy services. Set environment variables:
+- API: `PORT=3001`, `CORS_ORIGIN` (your web URL), `PG_*`, `REDIS_*`
+- Web: `PORT=3000`, `NEXT_PUBLIC_API_BASE` (API base URL)
+
+### docker-compose (production)
+You can also run locally with images using:
+```bash
+docker compose -f docker-compose.prod.yml up -d
+```
