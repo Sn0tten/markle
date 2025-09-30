@@ -1,0 +1,18 @@
+{
+  "name": "markle",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "services/*"
+  ],
+  "scripts": {
+    "build": "npm -ws run build",
+    "dev": "npm -ws run dev",
+    "lint": "npm -ws run lint",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "3.3.3"
+  }
+}
