@@ -8,11 +8,12 @@
   ],
   "scripts": {
     "build": "npm -ws run build",
-    "dev": "npm -ws run dev",
+    "dev": "concurrently -n web,api -c cyan,magenta \"npm run dev --workspace apps/web\" \"npm run start:dev --workspace services/api\"",
     "lint": "npm -ws run lint",
     "format": "prettier --write ."
   },
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "prettier": "3.3.3"
   }
 }
